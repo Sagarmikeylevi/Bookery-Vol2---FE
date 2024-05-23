@@ -1,3 +1,3 @@
 .list-style {
-  @apply cursor-pointer hover:text-green-800 hover:tracking-wider transition-all duration-200 ease-in-out;
+  @apply cursor-pointer hover:text-orange-800 hover:tracking-wider transition-all duration-200 ease-in-out;
 }
