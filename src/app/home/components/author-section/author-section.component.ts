@@ -6,8 +6,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./author-section.component.css'],
 })
 export class AuthorSectionComponent {
-  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
-  clickedButton: string = 'left';
+  title: string = 'Top Author';
   authors = [
     {
       name: 'William Shakespeare',
@@ -34,20 +33,4 @@ export class AuthorSectionComponent {
       img: 'https://upload.wikimedia.org/wikipedia/commons/3/31/William_Shakespeare_1609.jpg',
     },
   ];
-
-  scrollLeft(): void {
-    this.clickedButton = 'left';
-    this.scrollContainer.nativeElement.scrollBy({
-      left: -260,
-      behavior: 'smooth',
-    });
-  }
-
-  scrollRight(): void {
-    this.clickedButton = 'right';
-    this.scrollContainer.nativeElement.scrollBy({
-      left: 260,
-      behavior: 'smooth',
-    });
-  }
 }

@@ -9,6 +9,8 @@ import { HeroSectionComponent } from './home/components/hero-section/hero-sectio
 import { HomeComponent } from './home/home.component';
 import { AuthorSectionComponent } from './home/components/author-section/author-section.component';
 import { MatCardModule } from '@angular/material/card';
+import { ScrollableComponentComponent } from './shared/components/scrollable-component/scrollable-component.component';
+import { GenresSectionComponent } from './home/components/genres-section/genres-section.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { MatCardModule } from '@angular/material/card';
     HeroSectionComponent,
     HomeComponent,
     AuthorSectionComponent,
+    ScrollableComponentComponent,
+    GenresSectionComponent,
   ],
   imports: [
     BrowserModule,
