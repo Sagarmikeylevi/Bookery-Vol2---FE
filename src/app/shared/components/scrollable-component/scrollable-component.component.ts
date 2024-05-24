@@ -9,7 +9,6 @@ export class ScrollableComponentComponent {
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
   isClickedLeft: boolean = true;
   @Input() componentHeader: string = '';
-  @Input() items: any[] = [];
 
   scrollLeft(): void {
     this.isClickedLeft = true;

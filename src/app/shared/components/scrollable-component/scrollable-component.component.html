@@ -57,94 +57,19 @@
   </div>
 
   <div
-    class="w-[80%] md:w-[80%] flex flex-row justify-between items-center gap-6 overscroll-contain overflow-x-hidden"
+    class="w-[80%] md:w-[80%] overscroll-contain overflow-x-hidden"
     #scrollContainer
   >
-    <ng-container *ngIf="componentHeader === 'Top Author'">
-      <mat-card *ngFor="let item of items">
-        <img
-          mat-card-image
-          [src]="item.img"
-          [alt]="item.name"
-          class="w-64 h-72 min-h-72 min-w-64"
-        />
-        <mat-card-title
-          class="text-center py-4 bg-slate-200 font-medium text-lg"
-        >
-          {{ item.name }}
-        </mat-card-title>
-      </mat-card>
+    <ng-container *ngIf="componentHeader === 'Top Author'" class="">
+      <app-author-card></app-author-card>
     </ng-container>
+
     <ng-container *ngIf="componentHeader === 'Genres'">
-      <mat-card *ngFor="let item of items">
-        <div class="w-64 h-72 min-h-72 min-w-64 relative">
-          <img
-            mat-card-image
-            [src]="item.img"
-            [alt]="item.name"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-red-950 bg-opacity-50"></div>
-          <div
-            class="text-center px-4 py-2 rounded-md bg-white text-black hover:bg-orange-800 hover:text-white font-medium flex flex-row space-x-2 items-center justify-center text-lg absolute top-[90%] translate-y-[-90%] left-[50%] translate-x-[-50%] cursor-pointer"
-          >
-            <p>{{ item.name }}</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6 mt-1"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </div>
-        </div>
-      </mat-card>
+      <app-genre-card></app-genre-card>
     </ng-container>
 
     <ng-container *ngIf="componentHeader === 'Featured Books'">
-      <mat-card *ngFor="let item of items">
-        <img
-          mat-card-image
-          [src]="item.img"
-          [alt]="item.name"
-          class="w-64 h-72 min-h-72 min-w-64"
-        />
-        <mat-card-content class="bg-slate-200">
-          <div class="flex flex-row justify-between pt-2">
-            <div class="flex flex-col">
-              <p class="text-lg tracking-wide">{{ item.name }}</p>
-              <p class="text-sm font-thin">
-                {{ item.price | currency : "INR" }}
-              </p>
-            </div>
-            <p
-              class="hover:text-orange-400 cursor-pointer transition-all duration-200 ease-in-out mt-4"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-                />
-              </svg>
-            </p>
-          </div>
-        </mat-card-content>
-      </mat-card>
+      <app-book-card></app-book-card>
     </ng-container>
   </div>
 </section>

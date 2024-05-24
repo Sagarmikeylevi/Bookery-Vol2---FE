@@ -12,7 +12,9 @@ import { MatCardModule } from '@angular/material/card';
 import { ScrollableComponentComponent } from './shared/components/scrollable-component/scrollable-component.component';
 import { GenresSectionComponent } from './home/components/genres-section/genres-section.component';
 import { FeaturedBooksComponent } from './home/components/featured-books/featured-books.component';
-import { AuthorCardComponent } from './shared/components/author-card/author-card.component';
+import { AuthorCardComponent } from './home/components/author-section/author-card/author-card.component';
+import { GenreCardComponent } from './home/components/genres-section/genre-card/genre-card.component';
+import { BookCardComponent } from './shared/components/book-card/book-card.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { AuthorCardComponent } from './shared/components/author-card/author-card
     GenresSectionComponent,
     FeaturedBooksComponent,
     AuthorCardComponent,
+    GenreCardComponent,
+    BookCardComponent,
   ],
   imports: [
     BrowserModule,

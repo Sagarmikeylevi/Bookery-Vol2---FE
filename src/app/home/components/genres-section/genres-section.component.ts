@@ -7,30 +7,4 @@ import { Component } from '@angular/core';
 })
 export class GenresSectionComponent {
   title = 'Genres';
-  genres = [
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-  ];
 }
