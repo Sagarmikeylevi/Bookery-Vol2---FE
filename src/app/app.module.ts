@@ -11,6 +11,8 @@ import { AuthorSectionComponent } from './home/components/author-section/author-
 import { MatCardModule } from '@angular/material/card';
 import { ScrollableComponentComponent } from './shared/components/scrollable-component/scrollable-component.component';
 import { GenresSectionComponent } from './home/components/genres-section/genres-section.component';
+import { FeaturedBooksComponent } from './home/components/featured-books/featured-books.component';
+import { AuthorCardComponent } from './shared/components/author-card/author-card.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { GenresSectionComponent } from './home/components/genres-section/genres-
     AuthorSectionComponent,
     ScrollableComponentComponent,
     GenresSectionComponent,
+    FeaturedBooksComponent,
+    AuthorCardComponent,
   ],
   imports: [
     BrowserModule,
