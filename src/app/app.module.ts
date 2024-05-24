@@ -15,6 +15,8 @@ import { FeaturedBooksComponent } from './home/components/featured-books/feature
 import { AuthorCardComponent } from './home/components/author-section/author-card/author-card.component';
 import { GenreCardComponent } from './home/components/genres-section/genre-card/genre-card.component';
 import { BookCardComponent } from './shared/components/book-card/book-card.component';
+import { NewsletterComponent } from './home/components/newsletter/newsletter.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { BookCardComponent } from './shared/components/book-card/book-card.compo
     AuthorCardComponent,
     GenreCardComponent,
     BookCardComponent,
+    NewsletterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
