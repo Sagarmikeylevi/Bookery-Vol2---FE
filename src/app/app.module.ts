@@ -25,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { RegistationFormComponent } from './auth/registation-section/registation-form/registation-form.component';
+import { LoginFormComponent } from './auth/login-section/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { RegistationFormComponent } from './auth/registation-section/registation
     LoginSectionComponent,
     AuthHeaderComponent,
     RegistationFormComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,

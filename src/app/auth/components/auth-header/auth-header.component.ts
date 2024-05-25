@@ -6,7 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./auth-header.component.css'],
 })
 export class AuthHeaderComponent {
-  @Input() header: { title: string; subTitle: string } = {
+  @Input() header: { type: string; title: string; subTitle: string } = {
+    type: '',
     title: '',
     subTitle: '',
   };

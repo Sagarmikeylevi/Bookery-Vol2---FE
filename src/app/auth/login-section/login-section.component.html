@@ -1,1 +1,20 @@
-<p>login-section works!</p>
+<section class="w-full h-screen flex justify-center items-center bg-[#f2f2f2]">
+  <mat-card
+    class="w-[80%] h-[70%] max-w-[25rem] shadow-sm hover:shadow-2xl rounded-md cursor-pointer relative"
+  >
+    <app-auth-header [header]="headerContents"></app-auth-header>
+    <app-login-form></app-login-form>
+
+    <p
+      class="absolute top-[95%] translate-y-[-95%] text-sm tracking-wider text-gray-600 w-full flex items-center justify-center"
+    >
+      Don't have an account?
+      <a
+        routerLink="/sign-up"
+        class="text-base font-semibold text-gray-900 cursor-pointer"
+      >
+        Sign up
+      </a>
+    </p>
+  </mat-card>
+</section>

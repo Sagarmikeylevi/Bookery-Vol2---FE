@@ -14,7 +14,9 @@ export class FooterComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.showFooter = !['/sign-up'].includes(event.urlAfterRedirects);
+        this.showFooter = !['/sign-in', '/sign-up'].includes(
+          event.urlAfterRedirects
+        );
       }
     });
   }

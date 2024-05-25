@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./registation-section.component.css'],
 })
 export class RegistationSectionComponent {
-  headerContents: { title: string; subTitle: string } = {
+  headerContents: { type: string; title: string; subTitle: string } = {
+    type: 'register',
     title: 'Create your account',
     subTitle: `Let's get started your reading journey`,
   };

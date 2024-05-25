@@ -12,7 +12,9 @@ export class NavbarComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.showNavbar = !['/sign-up'].includes(event.urlAfterRedirects);
+        this.showNavbar = !['/sign-in', '/sign-up'].includes(
+          event.urlAfterRedirects
+        );
       }
     });
   }
