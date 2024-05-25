@@ -17,6 +17,8 @@ import { GenreCardComponent } from './home/components/genres-section/genre-card/
 import { BookCardComponent } from './shared/components/book-card/book-card.component';
 import { NewsletterComponent } from './home/components/newsletter/newsletter.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { RegistationSectionComponent } from './auth/components/registation-section/registation-section.component';
+import { LoginSectionComponent } from './auth/components/login-section/login-section.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     BookCardComponent,
     NewsletterComponent,
     FooterComponent,
+    RegistationSectionComponent,
+    LoginSectionComponent,
   ],
   imports: [
     BrowserModule,

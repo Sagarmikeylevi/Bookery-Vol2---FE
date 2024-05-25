@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
+  showNavbar: boolean = true;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.showNavbar = !['/sign-up'].includes(event.urlAfterRedirects);
+      }
+    });
+  }
+
   scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
