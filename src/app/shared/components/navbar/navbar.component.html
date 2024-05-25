@@ -10,10 +10,10 @@
   <ul
     class="flex flex-row items-center justify-evenly w-3/5 sm:text-lg h-full font-thin"
   >
-    <li class="list-style">Home</li>
-    <li class="list-style">Author</li>
-    <li class="list-style">Genres</li>
-    <li class="list-style">Featured</li>
+    <li class="list-style" (click)="scrollToSection('home')">Home</li>
+    <li class="list-style" (click)="scrollToSection('author')">Author</li>
+    <li class="list-style" (click)="scrollToSection('genres')">Genres</li>
+    <li class="list-style" (click)="scrollToSection('featured')">Featured</li>
   </ul>
 
   <ul
