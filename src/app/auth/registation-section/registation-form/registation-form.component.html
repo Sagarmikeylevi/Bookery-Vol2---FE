@@ -1,0 +1,81 @@
+<mat-card-content
+  class="absolute top-[75%] translate-y-[-75%] left-[50%] translate-x-[-50%] w-full"
+>
+  <form
+    #myForm="ngForm"
+    (ngSubmit)="onSubmit(myForm)"
+    class="flex flex-col justify-center items-center"
+  >
+    <mat-form-field class="w-[80%]">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        placeholder="Enter your name"
+        class="w-[80%]"
+        name="name"
+        ngModel
+        required
+        minlength="3"
+        #name="ngModel"
+      />
+      <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+        <span *ngIf="name.errors?.['required']">Name is required.</span>
+        <span *ngIf="name.errors?.['minlength']"
+          >Name must be at least 3 characters long.</span
+        >
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-[80%]">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        name="email"
+        ngModel
+        required
+        email
+        #email="ngModel"
+      />
+      <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+        <span *ngIf="email.errors?.['required']">Email is required.</span>
+        <span *ngIf="email.errors?.['email']"
+          >Email must be a valid email address.</span
+        >
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-[80%]">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        placeholder="Enter you password"
+        [type]="hide ? 'password' : 'text'"
+        name="password"
+        ngModel
+        required
+        #password="ngModel"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+        (click)="changeHide()"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-error
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+      >
+        <span *ngIf="password.errors?.['required']">Password is required.</span>
+      </mat-error>
+    </mat-form-field>
+    <button
+      type="submit"
+      [disabled]="myForm.invalid"
+      class="bg-black px-4 py-2 text-white rounded-md animate mt-2"
+      [ngClass]="{ inActive: !myForm.invalid }"
+    >
+      Submit
+    </button>
+  </form>
+</mat-card-content>

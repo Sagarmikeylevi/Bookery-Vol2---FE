@@ -12,3 +12,10 @@ body {
   font-family: "Lato", sans-serif;
   box-sizing: border-box;
 }
+
+.animate {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { RegistationSectionComponent } from './auth/components/registation-section/registation-section.component';
+import { RegistationSectionComponent } from './auth/registation-section/registation-section.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

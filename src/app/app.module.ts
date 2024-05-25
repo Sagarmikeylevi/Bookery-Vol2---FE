@@ -17,8 +17,14 @@ import { GenreCardComponent } from './home/components/genres-section/genre-card/
 import { BookCardComponent } from './shared/components/book-card/book-card.component';
 import { NewsletterComponent } from './home/components/newsletter/newsletter.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { RegistationSectionComponent } from './auth/components/registation-section/registation-section.component';
-import { LoginSectionComponent } from './auth/components/login-section/login-section.component';
+import { RegistationSectionComponent } from './auth/registation-section/registation-section.component';
+import { LoginSectionComponent } from './auth/login-section/login-section.component';
+import { AuthHeaderComponent } from './auth/components/auth-header/auth-header.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { RegistationFormComponent } from './auth/registation-section/registation-form/registation-form.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +43,8 @@ import { LoginSectionComponent } from './auth/components/login-section/login-sec
     FooterComponent,
     RegistationSectionComponent,
     LoginSectionComponent,
+    AuthHeaderComponent,
+    RegistationFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +52,11 @@ import { LoginSectionComponent } from './auth/components/login-section/login-sec
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
