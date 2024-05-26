@@ -1,0 +1,12 @@
+<p
+  class="absolute top-[95%] translate-y-[-95%] text-sm tracking-wider text-gray-600 w-full flex items-center justify-center"
+>
+  {{ footerMessage }}
+
+  <a
+    [routerLink]="type === 'Login' ? '/sign-up' : '/sign-in'"
+    class="text-base font-semibold text-gray-900 cursor-pointer"
+  >
+    {{ type === "Login" ? "Sign up" : "Log in" }}
+  </a>
+</p>

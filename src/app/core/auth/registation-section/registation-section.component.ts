@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { REGISTER_DETAILS } from 'src/app/app.constants';
 
 @Component({
   selector: 'app-registation-section',
@@ -6,9 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./registation-section.component.css'],
 })
 export class RegistationSectionComponent {
-  headerContents: { type: string; title: string; subTitle: string } = {
-    type: 'register',
-    title: 'Create your account',
-    subTitle: `Let's get started your reading journey`,
-  };
+  type = REGISTER_DETAILS.TYPE;
 }

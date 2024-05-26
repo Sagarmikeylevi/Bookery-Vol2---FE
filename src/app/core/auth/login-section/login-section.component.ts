@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LOGIN_DETAILS } from 'src/app/app.constants';
 
 @Component({
   selector: 'app-login-section',
@@ -6,9 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-section.component.css'],
 })
 export class LoginSectionComponent {
-  headerContents: { type: string; title: string; subTitle: string } = {
-    type: 'login',
-    title: 'Hey, hello',
-    subTitle: 'Enter your login credentials',
-  };
+  type = LOGIN_DETAILS.TYPE;
 }

@@ -2,7 +2,7 @@
   <div
     class="flex flex-row justify-center text-xl font-bold items-center space-x-2"
   >
-    <p *ngIf="header.type === 'register'">
+    <p *ngIf="type === 'Registation'">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -18,8 +18,8 @@
         />
       </svg>
     </p>
-    <p>{{ header.title }}</p>
-    <p *ngIf="header.type === 'login'">
+    <p>{{ title }}</p>
+    <p *ngIf="type === 'Login'">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -38,6 +38,6 @@
   </div>
 
   <p class="text-lg font-thin tracking-wide">
-    {{ header.subTitle }}
+    {{ subTitle }}
   </p>
 </mat-card-title>

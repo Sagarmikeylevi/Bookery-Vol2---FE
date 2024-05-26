@@ -1,0 +1,11 @@
+.registerStyle {
+  @apply top-[75%] translate-y-[-75%];
+}
+
+.loginStyle {
+  @apply top-[60%] translate-y-[-60%];
+}
+
+.active {
+  @apply bg-orange-500;
+}

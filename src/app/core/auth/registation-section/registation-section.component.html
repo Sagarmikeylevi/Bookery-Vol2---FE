@@ -2,18 +2,8 @@
   <mat-card
     class="w-[80%] h-[85%] max-w-[25rem] shadow-sm hover:shadow-2xl rounded-md cursor-pointer relative"
   >
-    <app-auth-header [header]="headerContents"></app-auth-header>
-    <app-registation-form></app-registation-form>
-    <p
-      class="absolute top-[98%] translate-y-[-98%] text-sm tracking-wider text-gray-600 w-full flex items-center justify-center"
-    >
-      Already have an account?
-      <a
-        routerLink="/sign-in"
-        class="text-base font-semibold text-gray-900 cursor-pointer"
-      >
-        Log in
-      </a>
-    </p>
+    <app-auth-header [type]="type"></app-auth-header>
+    <app-auth-form [type]="type"></app-auth-form>
+    <app-auth-footer [type]="type"></app-auth-footer>
   </mat-card>
 </section>

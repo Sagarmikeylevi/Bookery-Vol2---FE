@@ -1,11 +1,34 @@
 <mat-card-content
-  class="absolute top-[60%] translate-y-[-60%] left-[50%] translate-x-[-50%] w-full"
+  class="absolute left-[50%] translate-x-[-50%] w-full"
+  [ngClass]="{
+    registerStyle: type === 'Registation',
+    loginStyle: type === 'Login'
+  }"
 >
   <form
     #myForm="ngForm"
     (ngSubmit)="onSubmit(myForm)"
     class="flex flex-col justify-center items-center"
   >
+    <mat-form-field class="w-[80%]" *ngIf="type === 'Registation'">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        placeholder="Enter your name"
+        class="w-[80%]"
+        name="name"
+        ngModel
+        required
+        minlength="3"
+        #name="ngModel"
+      />
+      <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+        <span *ngIf="name.errors?.['required']">Name is required.</span>
+        <span *ngIf="name.errors?.['minlength']"
+          >Name must be at least 3 characters long.</span
+        >
+      </mat-error>
+    </mat-form-field>
     <mat-form-field class="w-[80%]">
       <mat-label>Email</mat-label>
       <input
@@ -38,6 +61,7 @@
       <button
         mat-icon-button
         matSuffix
+        type="button"
         [attr.aria-label]="'Hide password'"
         [attr.aria-pressed]="hide"
         (click)="changeHide()"
@@ -52,11 +76,11 @@
     </mat-form-field>
     <button
       type="submit"
-      [disabled]="myForm.invalid"
-      class="bg-black w-[80%] py-2 text-white rounded-md animate mt-2"
-      [ngClass]="{ inActive: !myForm.invalid }"
+      [disabled]="myForm.invalid || loading"
+      class="bg-black w-[80%] py-2 text-white rounded-md mt-2 animate"
+      [ngClass]="{ active: loading }"
     >
-      Submit
+      {{ loading ? "Submitting..." : "Submit" }}
     </button>
   </form>
 </mat-card-content>

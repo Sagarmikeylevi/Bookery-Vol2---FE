@@ -25,8 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { RegistationFormComponent } from './core/auth/registation-section/registation-form/registation-form.component';
-import { LoginFormComponent } from './core/auth/login-section/login-form/login-form.component';
+import { AuthFormComponent } from './core/auth/components/auth-form/auth-form.component';
+import { AuthFooterComponent } from './core/auth/components/auth-footer/auth-footer.component';
 
 @NgModule({
   declarations: [
@@ -46,8 +46,8 @@ import { LoginFormComponent } from './core/auth/login-section/login-form/login-f
     RegistationSectionComponent,
     LoginSectionComponent,
     AuthHeaderComponent,
-    RegistationFormComponent,
-    LoginFormComponent,
+    AuthFormComponent,
+    AuthFooterComponent,
   ],
   imports: [
     BrowserModule,
