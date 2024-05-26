@@ -71,11 +71,11 @@
     </mat-form-field>
     <button
       type="submit"
-      [disabled]="myForm.invalid"
-      class="bg-black w-[80%] py-2 text-white rounded-md animate mt-2"
-      [ngClass]="{ inActive: !myForm.invalid }"
+      [disabled]="myForm.invalid || loading"
+      class="bg-black w-[80%] py-2 text-white rounded-md mt-2 animate"
+      [ngClass]="{ active: loading }"
     >
-      Submit
+      {{ loading ? "Submitting..." : "Submit" }}
     </button>
   </form>
 </mat-card-content>
