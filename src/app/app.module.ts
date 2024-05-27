@@ -15,7 +15,6 @@ import { GenresSectionComponent } from './core/home/components/genres-section/ge
 import { FeaturedBooksComponent } from './core/home/components/featured-books/featured-books.component';
 import { AuthorCardComponent } from './core/home/components/author-section/author-card/author-card.component';
 import { GenreCardComponent } from './core/home/components/genres-section/genre-card/genre-card.component';
-import { BookCardComponent } from './shared/components/book-card/book-card.component';
 import { NewsletterComponent } from './core/home/components/newsletter/newsletter.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { RegistationSectionComponent } from './core/auth/registation-section/registation-section.component';
@@ -27,6 +26,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthFormComponent } from './core/auth/components/auth-form/auth-form.component';
 import { AuthFooterComponent } from './core/auth/components/auth-footer/auth-footer.component';
+import { FeaturedBooksCardComponent } from './core/home/components/featured-books/featured-books-card/featured-books-card.component';
+import { ShowBooksComponent } from './core/show-books/show-books.component';
+import { ShowBooksHeaderComponent } from './core/show-books/components/show-books-header/show-books-header.component';
+import { BooksSectionComponent } from './core/show-books/components/books-section/books-section.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,6 @@ import { AuthFooterComponent } from './core/auth/components/auth-footer/auth-foo
     FeaturedBooksComponent,
     AuthorCardComponent,
     GenreCardComponent,
-    BookCardComponent,
     NewsletterComponent,
     FooterComponent,
     RegistationSectionComponent,
@@ -48,6 +50,10 @@ import { AuthFooterComponent } from './core/auth/components/auth-footer/auth-foo
     AuthHeaderComponent,
     AuthFormComponent,
     AuthFooterComponent,
+    FeaturedBooksCardComponent,
+    ShowBooksComponent,
+    ShowBooksHeaderComponent,
+    BooksSectionComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,15 +4,15 @@ import { Book } from 'src/app/models/book';
 import { BookService } from 'src/app/services/books/book.service';
 
 @Component({
-  selector: 'app-book-card',
-  templateUrl: './book-card.component.html',
-  styleUrls: ['./book-card.component.css'],
+  selector: 'app-featured-books-card',
+  templateUrl: './featured-books-card.component.html',
+  styleUrls: ['./featured-books-card.component.css'],
 })
-export class BookCardComponent {
+export class FeaturedBooksCardComponent {
+  imageURLPrefix = BOOK_DEATILS.imageURLPrefix;
   constructor(private bookService: BookService) {}
-  imageURLPrefix: string = BOOK_DEATILS.imageURLPrefix;
 
   get featuredBooks(): Book[] {
-    return this.bookService.getFeaturedBooks();
+    return this.bookService.getFilteredBooks('Featured Books');
   }
 }

@@ -10,7 +10,13 @@
     <div
       class="bg-white text-black px-4 py-2 rounded-md text-lg flex flex-row items-center justify-center gap-2 font-medium hover:bg-orange-600 hover:opacity-90 hover:text-white transition-all duration-200 ease-in-out cursor-pointer"
     >
-      <p>Shop Now</p>
+      <p>
+        <a
+          [routerLink]="['/show-books']"
+          [queryParams]="{ section: 'Best Seller', query: 'Best Seller' }"
+          >Best Sellers</a
+        >
+      </p>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"

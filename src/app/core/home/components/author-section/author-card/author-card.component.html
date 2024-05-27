@@ -1,13 +1,18 @@
 <section class="flex flex-row justify-between items-center gap-6">
-  <mat-card *ngFor="let author of authors">
-    <img
-      mat-card-image
-      [src]="author.img"
-      [alt]="author.name"
-      class="w-64 h-72 min-h-72 min-w-64"
-    />
-    <mat-card-title class="text-center py-4 bg-slate-200 font-medium text-lg">
-      {{ author.name }}
-    </mat-card-title>
+  <mat-card *ngFor="let author of authors" class="cursor-pointer">
+    <a
+      [routerLink]="['/show-books']"
+      [queryParams]="{ section: 'Author', query: author.name }"
+    >
+      <img
+        mat-card-image
+        [src]="author.img"
+        [alt]="author.name"
+        class="w-64 h-72 min-h-72 min-w-64"
+      />
+      <mat-card-title class="text-center py-4 bg-slate-200 font-medium text-lg">
+        {{ author.name }}
+      </mat-card-title>
+    </a>
   </mat-card>
 </section>

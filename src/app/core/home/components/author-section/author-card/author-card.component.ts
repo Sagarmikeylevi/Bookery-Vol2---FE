@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AUTHORS } from 'src/app/app.constants';
 
 @Component({
   selector: 'app-author-card',
@@ -6,30 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./author-card.component.css'],
 })
 export class AuthorCardComponent {
-  authors = [
-    {
-      name: 'William Shakespeare',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/3/31/William_Shakespeare_1609.jpg',
-    },
-    {
-      name: 'Jane Austen',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/3/31/William_Shakespeare_1609.jpg',
-    },
-    {
-      name: 'Mark Twain',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/3/31/William_Shakespeare_1609.jpg',
-    },
-    {
-      name: 'Mark Twain',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/3/31/William_Shakespeare_1609.jpg',
-    },
-    {
-      name: 'Mark Twain',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/3/31/William_Shakespeare_1609.jpg',
-    },
-    {
-      name: 'Mark Twain',
-      img: 'https://upload.wikimedia.org/wikipedia/commons/3/31/William_Shakespeare_1609.jpg',
-    },
-  ];
+  authors = AUTHORS;
 }

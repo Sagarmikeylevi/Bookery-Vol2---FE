@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GENRES } from 'src/app/app.constants';
 
 @Component({
   selector: 'app-genre-card',
@@ -6,30 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./genre-card.component.css'],
 })
 export class GenreCardComponent {
-  genres = [
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-    {
-      name: 'Horror',
-      img: 'https://img.freepik.com/premium-photo/dark-horror-old-house-scary-atmosphere-fantastic_717440-583.jpg',
-    },
-  ];
+  genres = GENRES;
 }
