@@ -22,7 +22,6 @@ export class ShowBooksComponent implements OnInit {
       this.query = params['query'];
       this.section = params['section'];
     });
-    console.log(this.section);
   }
 
   get filteredBooks(): Book[] {

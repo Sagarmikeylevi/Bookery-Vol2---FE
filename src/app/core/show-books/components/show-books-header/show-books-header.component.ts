@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { BookService } from 'src/app/services/books/book.service';
 
 @Component({
   selector: 'app-show-books-header',
@@ -7,4 +8,12 @@ import { Component, Input } from '@angular/core';
 })
 export class ShowBooksHeaderComponent {
   @Input() section: string = '';
+  searchQuery: string = '';
+  constructor(private bookService: BookService) {}
+
+  onSearch() {
+    setTimeout(() => {
+      this.bookService.searchedBooks(this.searchQuery);
+    }, 300);
+  }
 }

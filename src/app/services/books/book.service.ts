@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, retry } from 'rxjs';
+import { Observable } from 'rxjs';
 import { API_ENDPOINTS } from 'src/app/app.constants';
 import { Book } from 'src/app/models/book';
 
@@ -8,31 +8,53 @@ import { Book } from 'src/app/models/book';
   providedIn: 'root',
 })
 export class BookService {
-  books: Book[] = [];
+  private books: Book[] = [];
+  private filteredBooks: Book[] = [];
 
   constructor(private http: HttpClient) {}
 
   setAllBooks(books: Book[]): void {
     this.books = books;
+    this.filteredBooks = books;
+  }
+
+  searchedBooks(query: string): void {
+    if (!query) {
+      this.filteredBooks = this.books;
+    } else {
+      this.filteredBooks = this.books.filter((book) =>
+        book.title.toLowerCase().includes(query.toLowerCase())
+      );
+    }
   }
 
   getFilteredBooks(section: string, query: string = ''): Book[] {
-    if (section === 'Featured Books') {
-      return this.books.filter((book) => book.featured === true);
-    }
-    if (section === 'Best Seller') {
-      return this.books.filter((book) => book.bestSeller === true);
+    let filtered = this.filteredBooks;
+
+    switch (section) {
+      case 'Featured Books':
+        filtered = filtered.filter((book) => book.featured === true);
+        break;
+      case 'Best Seller':
+        filtered = filtered.filter((book) => book.bestSeller === true);
+        break;
+      case 'Author':
+        filtered = filtered.filter(
+          (book) => book.author.toLowerCase() === query.toLowerCase()
+        );
+        break;
+      case 'Genres':
+        filtered = filtered.filter((book) =>
+          book.genres.some(
+            (genre) => genre.toLowerCase() === query.toLowerCase()
+          )
+        );
+        break;
+      default:
+        break;
     }
 
-    if (section === 'Author') {
-      return this.books.filter((book) => book.author === query);
-    }
-
-    if (section === 'Genres') {
-      return this.books.filter((book) => book.genres.includes(query));
-    }
-
-    return this.books;
+    return filtered;
   }
 
   getAllBooks(): Observable<any> {

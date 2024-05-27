@@ -35,6 +35,8 @@
       type="text"
       placeholder="Search"
       class="font-medium h-10 bg-transparent border-none outline-none"
+      [(ngModel)]="searchQuery"
+      (input)="onSearch()"
     />
   </div>
 </section>
