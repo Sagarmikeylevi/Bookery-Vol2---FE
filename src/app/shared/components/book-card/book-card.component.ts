@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { BOOK_DEATILS } from 'src/app/app.constants';
+import { Book } from 'src/app/models/book';
+import { BookService } from 'src/app/services/books/book.service';
 
 @Component({
   selector: 'app-book-card',
@@ -6,36 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./book-card.component.css'],
 })
 export class BookCardComponent {
-  featuredBooks = [
-    {
-      name: 'THE ALCHEMIST',
-      img: 'https://dailytimes.com.pk/assets/uploads/2021/07/06/the-alchemist-a-graphic-novel-1017x1536.jpg',
-      price: 700,
-    },
-    {
-      name: 'THE ALCHEMIST',
-      img: 'https://dailytimes.com.pk/assets/uploads/2021/07/06/the-alchemist-a-graphic-novel-1017x1536.jpg',
-      price: 700,
-    },
-    {
-      name: 'THE ALCHEMIST',
-      img: 'https://dailytimes.com.pk/assets/uploads/2021/07/06/the-alchemist-a-graphic-novel-1017x1536.jpg',
-      price: 700,
-    },
-    {
-      name: 'THE ALCHEMIST',
-      img: 'https://dailytimes.com.pk/assets/uploads/2021/07/06/the-alchemist-a-graphic-novel-1017x1536.jpg',
-      price: 700,
-    },
-    {
-      name: 'THE ALCHEMIST',
-      img: 'https://dailytimes.com.pk/assets/uploads/2021/07/06/the-alchemist-a-graphic-novel-1017x1536.jpg',
-      price: 700,
-    },
-    {
-      name: 'THE ALCHEMIST',
-      img: 'https://dailytimes.com.pk/assets/uploads/2021/07/06/the-alchemist-a-graphic-novel-1017x1536.jpg',
-      price: 700,
-    },
-  ];
+  constructor(private bookService: BookService) {}
+  imageURLPrefix: string = BOOK_DEATILS.imageURLPrefix;
+
+  get featuredBooks(): Book[] {
+    return this.bookService.getFeaturedBooks();
+  }
 }

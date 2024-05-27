@@ -10,6 +10,8 @@ import { User } from 'src/app/models/user';
 export class UserService {
   private authState: boolean = this.isTokenAvailble();
 
+  constructor(private http: HttpClient) {}
+
   getAuthState(): boolean {
     return this.authState;
   }
@@ -24,8 +26,6 @@ export class UserService {
   isTokenAvailble(): boolean {
     return !!localStorage.getItem('token');
   }
-
-  constructor(private http: HttpClient) {}
 
   register(user: User): Observable<any> {
     return this.http.post(API_ENDPOINTS.REGISTER, user);

@@ -3,6 +3,7 @@ const apiURL = 'http://localhost:8000/api';
 export const API_ENDPOINTS = {
   REGISTER: `${apiURL}/user/register`,
   LOGIN: `${apiURL}/user/login`,
+  GET_ALLBOOKS: `${apiURL}/book/getbooks`,
 };
 
 export const LOGIN_DETAILS = {
@@ -17,4 +18,8 @@ export const REGISTER_DETAILS = {
   TITLE: 'Create your account',
   SUB_TITLE: `Let's get started your reading journey`,
   FOOTER_MESSAGE: `Already have an account?`,
+};
+
+export const BOOK_DEATILS = {
+  imageURLPrefix: 'http://localhost:8000/uploads/images',
 };
