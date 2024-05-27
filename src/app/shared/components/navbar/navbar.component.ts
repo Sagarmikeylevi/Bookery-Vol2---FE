@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+
+import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +11,7 @@ import { NavigationEnd, Router } from '@angular/router';
 export class NavbarComponent {
   showNavbar: boolean = true;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService: UserService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.showNavbar = !['/sign-in', '/sign-up'].includes(
@@ -19,10 +21,18 @@ export class NavbarComponent {
     });
   }
 
+  get authState(): boolean {
+    return this.userService.getAuthState();
+  }
+
   scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  logOut = () => {
+    this.userService.logout();
   };
 }

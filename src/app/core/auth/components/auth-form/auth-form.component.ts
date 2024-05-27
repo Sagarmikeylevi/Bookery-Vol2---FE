@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class AuthFormComponent {
   hide = true;
   loading = false;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   // Handle From Submission
   onSubmit(myForm: NgForm): void {
@@ -32,12 +33,18 @@ export class AuthFormComponent {
 
   // Handle successful response
   handleSuccess(response: any, myForm: NgForm): void {
-    console.log(
-      `${this.type.charAt(0).toUpperCase() + this.type.slice(1)} successful!`,
-      response
-    );
     myForm.reset();
     this.loading = false;
+
+    if (this.type === 'Login') {
+      const { token, userId, username } = response.data;
+
+      this.userService.setAuthItems(token, userId, username);
+
+      this.router.navigateByUrl('/');
+    } else {
+      this.router.navigateByUrl('/sign-in');
+    }
   }
 
   // Handle error response
@@ -46,39 +53,6 @@ export class AuthFormComponent {
     myForm.reset();
     this.loading = false;
   }
-
-  // Handle form submission
-  // onSubmit = (myForm: NgForm, type: string) => {
-  //   const { name = '', email, password } = myForm.form.value;
-  //   this.loading = true;
-  //   if (type === 'register') {
-  //     this.userService.register({ name, email, password }).subscribe(
-  //       (response) => {
-  //         console.log('Registration successful!', response);
-  //         myForm.reset();
-  //         this.loading = false;
-  //       },
-  //       (error) => {
-  //         console.error('Registration failed:', error);
-  //         myForm.reset();
-  //         this.loading = false;
-  //       }
-  //     );
-  //   } else {
-  //     this.userService.login({ email, password }).subscribe(
-  //       (response) => {
-  //         console.log('Registration successful!', response);
-  //         myForm.reset();
-  //         this.loading = false;
-  //       },
-  //       (error) => {
-  //         console.error('Registration failed:', error);
-  //         myForm.reset();
-  //         this.loading = false;
-  //       }
-  //     );
-  //   }
-  // };
 
   // Handle hide section in password
   changeHide = () => {

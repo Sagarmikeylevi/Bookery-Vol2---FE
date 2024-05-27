@@ -8,6 +8,23 @@ import { User } from 'src/app/models/user';
   providedIn: 'root',
 })
 export class UserService {
+  private authState: boolean = this.isTokenAvailble();
+
+  getAuthState(): boolean {
+    return this.authState;
+  }
+
+  setAuthItems(token: string, userId: string, username: string): void {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', userId);
+    localStorage.setItem('username', username);
+    this.authState = true;
+  }
+
+  isTokenAvailble(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
   constructor(private http: HttpClient) {}
 
   register(user: User): Observable<any> {
@@ -16,5 +33,12 @@ export class UserService {
 
   login(credentials: { email: string; password: string }): Observable<any> {
     return this.http.post(API_ENDPOINTS.LOGIN, credentials);
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('username');
+    this.authState = false;
   }
 }
