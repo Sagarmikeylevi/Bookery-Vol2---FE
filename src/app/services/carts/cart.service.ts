@@ -18,4 +18,8 @@ export class CartService {
       orderDetails
     );
   }
+
+  getCartBooks(userId: string): Observable<any> {
+    return this.http.get(`${API_ENDPOINTS.GET_CART_ITEMS}/${userId}`);
+  }
 }

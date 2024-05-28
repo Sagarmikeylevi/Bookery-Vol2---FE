@@ -34,6 +34,10 @@ import { OrderComponent } from './core/order/order.component';
 import { OrderHeaderComponent } from './core/order/components/order-header/order-header.component';
 import { OrderMainComponent } from './core/order/components/order-main/order-main.component';
 import { AuthInterceptorInterceptor } from './services/auth-interceptor.interceptor';
+import { CartComponent } from './core/cart/cart.component';
+import { CartHeaderComponent } from './core/cart/components/cart-header/cart-header.component';
+import { CartItemsComponent } from './core/cart/components/cart-items/cart-items.component';
+import { CheckoutSectionComponent } from './core/cart/components/checkout-section/checkout-section.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +65,10 @@ import { AuthInterceptorInterceptor } from './services/auth-interceptor.intercep
     OrderComponent,
     OrderHeaderComponent,
     OrderMainComponent,
+    CartComponent,
+    CartHeaderComponent,
+    CartItemsComponent,
+    CheckoutSectionComponent,
   ],
   imports: [
     BrowserModule,

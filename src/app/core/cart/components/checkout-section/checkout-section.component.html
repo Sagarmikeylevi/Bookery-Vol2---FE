@@ -1,0 +1,36 @@
+<section
+  class="w-[80%] ml-[10%] md:w-[50%] md:ml-[25%] mb-8 flex flex-col justify-center items-center"
+>
+  <div class="w-full flex flex-row justify-between items-center">
+    <h1 class="font-medium text-gray-500">Subtotal</h1>
+    <p class="font-medium text-gray-600">
+      {{ checkoutPrice.totalPrice | currency : "INR" }}
+    </p>
+  </div>
+  <div class="mt-2 w-full flex flex-row justify-between items-center">
+    <h1 class="font-medium text-gray-500">Discount(5%)</h1>
+    <p class="font-medium text-gray-600">
+      {{ checkoutPrice.discount | currency : "INR" }}
+    </p>
+  </div>
+  <div class="mt-2 w-full flex flex-row justify-between items-center">
+    <h1 class="font-medium text-gray-500">Shipment</h1>
+    <p class="font-medium text-gray-600">
+      {{ checkoutPrice.shipment | currency : "INR" }}
+    </p>
+  </div>
+  <span class="mt-4 w-full h-[2px] bg-gray-400"></span>
+  <div class="mt-2 w-full flex flex-row justify-between items-center">
+    <h1 class="font-medium text-gray-600">Grand Total</h1>
+    <p class="font-medium text-gray-700">
+      {{
+        checkoutPrice.totalPrice +
+          checkoutPrice.discount +
+          checkoutPrice.shipment | currency : "INR"
+      }}
+    </p>
+  </div>
+  <button class="mt-6 px-4 py-2 rounded-md bg-black text-white" type="submit">
+    Checkout
+  </button>
+</section>

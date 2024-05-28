@@ -1,0 +1,9 @@
+<section class="min-h-[100vh] h-auto pt-20">
+  <app-cart-header></app-cart-header>
+
+  <section class="mt-8 w-[98%] ml-[1%] flex flex-col gap-10">
+    <app-cart-items [cartItems]="cartItems"></app-cart-items>
+
+    <app-checkout-section [cartItems]="cartItems"></app-checkout-section>
+  </section>
+</section>

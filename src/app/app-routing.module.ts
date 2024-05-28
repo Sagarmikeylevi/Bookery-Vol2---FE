@@ -5,6 +5,7 @@ import { RegistationSectionComponent } from './core/auth/registation-section/reg
 import { LoginSectionComponent } from './core/auth/login-section/login-section.component';
 import { ShowBooksComponent } from './core/show-books/show-books.component';
 import { OrderComponent } from './core/order/order.component';
+import { CartComponent } from './core/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'sign-in', component: LoginSectionComponent },
   { path: 'show-books', component: ShowBooksComponent },
   { path: 'order/:id', component: OrderComponent },
+  { path: 'cart', component: CartComponent },
 ];
 
 @NgModule({

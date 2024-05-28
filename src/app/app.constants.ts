@@ -5,6 +5,7 @@ export const API_ENDPOINTS = {
   LOGIN: `${apiURL}/user/login`,
   GET_ALLBOOKS: `${apiURL}/book/getbooks`,
   ADD_TO_CART: `${apiURL}/cart/addBooks`,
+  GET_CART_ITEMS: `${apiURL}/cart/getBooks`,
 };
 
 export const LOGIN_DETAILS = {
