@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
@@ -30,6 +30,10 @@ import { FeaturedBooksCardComponent } from './core/home/components/featured-book
 import { ShowBooksComponent } from './core/show-books/show-books.component';
 import { ShowBooksHeaderComponent } from './core/show-books/components/show-books-header/show-books-header.component';
 import { BooksSectionComponent } from './core/show-books/components/books-section/books-section.component';
+import { OrderComponent } from './core/order/order.component';
+import { OrderHeaderComponent } from './core/order/components/order-header/order-header.component';
+import { OrderMainComponent } from './core/order/components/order-main/order-main.component';
+import { AuthInterceptorInterceptor } from './services/auth-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,6 +58,9 @@ import { BooksSectionComponent } from './core/show-books/components/books-sectio
     ShowBooksComponent,
     ShowBooksHeaderComponent,
     BooksSectionComponent,
+    OrderComponent,
+    OrderHeaderComponent,
+    OrderMainComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +75,13 @@ import { BooksSectionComponent } from './core/show-books/components/books-sectio
     ReactiveFormsModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

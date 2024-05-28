@@ -27,6 +27,10 @@ export class UserService {
     return !!localStorage.getItem('token');
   }
 
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
   register(user: User): Observable<any> {
     return this.http.post(API_ENDPOINTS.REGISTER, user);
   }

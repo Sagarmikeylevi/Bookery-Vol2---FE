@@ -28,6 +28,10 @@ export class BookService {
     }
   }
 
+  getOrderedBook(bookId: string): Book[] {
+    return this.filteredBooks.filter((book) => book._id === bookId);
+  }
+
   getFilteredBooks(section: string, query: string = ''): Book[] {
     let filtered = this.filteredBooks;
 

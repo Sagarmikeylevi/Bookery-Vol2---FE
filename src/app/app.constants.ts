@@ -4,6 +4,7 @@ export const API_ENDPOINTS = {
   REGISTER: `${apiURL}/user/register`,
   LOGIN: `${apiURL}/user/login`,
   GET_ALLBOOKS: `${apiURL}/book/getbooks`,
+  ADD_TO_CART: `${apiURL}/cart/addBooks`,
 };
 
 export const LOGIN_DETAILS = {

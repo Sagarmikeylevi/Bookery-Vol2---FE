@@ -1,0 +1,98 @@
+<section class="mt-12 mb-16 flex-col">
+  <div class="flex flex-row justify-center items-center gap-8 md:gap-12">
+    <img
+      class="h-[12rem] w-[10rem] rounded md:h-[15rem] md:w-[12rem] lg:h-[18rem] lg:w-[15rem]"
+      [src]="imageURLPrefix + '/' + book[0].imageURL"
+      [alt]="book[0].title"
+    />
+
+    <div class="h-[12rem] md:h-[15rem] lg:h-[16rem] lg:mt-[1rem]">
+      <h1 class="font-semibold text-lg md:text-xl lg:text-2xl tracking-wide">
+        {{ book[0].title }}
+      </h1>
+
+      <p class="font-medium text-gray-800 md:text-lg lg:text-xl">
+        {{ book[0].price | currency : "INR" }}
+      </p>
+
+      <p
+        class="mt-2 text-sm md:text-base lg:text-lg font-medium text-gray-500"
+        *ngIf="book[0].totalQty > 0"
+      >
+        Only {{ book[0].totalQty }} left <span class="text-sm">in Stocks</span>
+      </p>
+
+      <p
+        class="mt-2 text-sm md:text-base lg:text-lg font-medium text-red-400"
+        *ngIf="book[0].totalQty <= 0"
+      >
+        <span>Out of stocks</span>
+      </p>
+
+      <div class="flex flex-row space-x-4 items-center mt-2">
+        <p
+          class="bg-slate-200 px-2 py-2 rounded-md cursor-pointer"
+          (click)="minusBookCount()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+          </svg>
+        </p>
+
+        <p class="ml-2 mr-2 text-lg font-medium">{{ bookCount }}</p>
+
+        <p
+          class="bg-slate-200 px-2 py-2 rounded-md cursor-pointer"
+          (click)="plusBookCount()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 4.5v15m7.5-7.5h-15"
+            />
+          </svg>
+        </p>
+      </div>
+
+      <button
+        class="mt-4 px-8 py-3 bg-black rounded-md text-white hover:bg-orange-500 animate"
+        (click)="handleAddToCart()"
+      >
+        Add to cart
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-12 flex flex-col justify-center items-center lg:mt-14">
+    <h1
+      class="text-xl font-medium md:text-2xl lg:text-3xl mb-6 bg-[#e6e6e6] p-4 rounded shadow-lg"
+    >
+      Details
+    </h1>
+
+    <div class="w-4/5">
+      <h1 class="text-xl mb-4 font-semibold lg:text-2xl">
+        {{ book[0].title }}
+        <span class="text-base font-thin lf:text-lg">
+          - {{ book[0].author }}
+        </span>
+      </h1>
+      <p class="text-sm md:text-base lg:text-lg">{{ book[0].summary }}</p>
+    </div>
+  </div>
+</section>
