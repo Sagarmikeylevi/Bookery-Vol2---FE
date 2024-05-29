@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CartItems } from 'src/app/models/cartItems';
 import { CartService } from 'src/app/services/carts/cart.service';
+import { ErrorService } from 'src/app/services/error/error.service';
 
 @Component({
   selector: 'app-checkout-section',
@@ -10,7 +11,10 @@ import { CartService } from 'src/app/services/carts/cart.service';
 export class CheckoutSectionComponent {
   @Input() cartItems: CartItems[] = [];
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private errorService: ErrorService
+  ) {}
 
   get checkoutPrice(): {
     totalPrice: number;
@@ -45,7 +49,9 @@ export class CheckoutSectionComponent {
 
     this.cartService.checkout(userId).subscribe(
       (response) => console.log(response),
-      (error) => console.log(error)
+      (error) => {
+        this.errorService.setError('Error in checking out');
+      }
     );
   }
 }

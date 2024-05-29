@@ -38,6 +38,7 @@ import { CartComponent } from './core/cart/cart.component';
 import { CartHeaderComponent } from './core/cart/components/cart-header/cart-header.component';
 import { CartItemsComponent } from './core/cart/components/cart-items/cart-items.component';
 import { CheckoutSectionComponent } from './core/cart/components/checkout-section/checkout-section.component';
+import { ErrorSectionComponent } from './shared/components/error-section/error-section.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { CheckoutSectionComponent } from './core/cart/components/checkout-sectio
     CartHeaderComponent,
     CartItemsComponent,
     CheckoutSectionComponent,
+    ErrorSectionComponent,
   ],
   imports: [
     BrowserModule,

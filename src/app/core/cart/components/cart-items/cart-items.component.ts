@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { BOOK_DEATILS } from 'src/app/app.constants';
 import { CartItems } from 'src/app/models/cartItems';
 import { CartService } from 'src/app/services/carts/cart.service';
+import { ErrorService } from 'src/app/services/error/error.service';
 
 @Component({
   selector: 'app-cart-items',
@@ -12,7 +13,10 @@ export class CartItemsComponent {
   @Input() cartItems: CartItems[] = [];
   imageURLPrefix: string = BOOK_DEATILS.imageURLPrefix;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private errorService: ErrorService
+  ) {}
 
   get userId(): string | null {
     return localStorage.getItem('user');
@@ -29,7 +33,9 @@ export class CartItemsComponent {
       (response) => {
         console.log(response);
       },
-      (error) => console.log(error)
+      (error) => {
+        this.errorService.setError('Error deleting cart books');
+      }
     );
   }
 }

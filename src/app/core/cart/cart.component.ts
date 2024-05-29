@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItems } from 'src/app/models/cartItems';
 import { CartService } from 'src/app/services/carts/cart.service';
+import { ErrorService } from 'src/app/services/error/error.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +9,10 @@ import { CartService } from 'src/app/services/carts/cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private errorService: ErrorService
+  ) {}
   cartItems: CartItems[] = [];
 
   get userId(): string | null {
@@ -35,7 +39,9 @@ export class CartComponent implements OnInit {
         }));
       },
 
-      (error) => console.log(error)
+      (error) => {
+        this.errorService.setError('Error finding cart books');
+      }
     );
   }
 }

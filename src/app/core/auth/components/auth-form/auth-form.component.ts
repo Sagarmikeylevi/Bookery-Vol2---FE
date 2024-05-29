@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ErrorService } from 'src/app/services/error/error.service';
 import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
@@ -13,7 +14,11 @@ export class AuthFormComponent {
   hide = true;
   loading = false;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private errorService: ErrorService
+  ) {}
 
   // Handle From Submission
   onSubmit(myForm: NgForm): void {
@@ -52,6 +57,12 @@ export class AuthFormComponent {
     console.error(`${this.type} failed:`, error);
     myForm.reset();
     this.loading = false;
+
+    if (error.status === 409 || error.status === 422) {
+      this.errorService.setError(error.error);
+    } else {
+      this.errorService.setError('Something went wrong');
+    }
   }
 
   // Handle hide section in password
