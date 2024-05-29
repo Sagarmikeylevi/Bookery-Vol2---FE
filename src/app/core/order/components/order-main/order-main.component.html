@@ -72,8 +72,16 @@
       <button
         class="mt-4 px-8 py-3 bg-black rounded-md text-white hover:bg-orange-500 animate"
         (click)="handleAddToCart()"
+        *ngIf="isAddedToCart === false"
       >
-        Add to cart
+        {{ isLoading === false ? "Add to cart" : "Adding..." }}
+      </button>
+
+      <button
+        class="mt-4 px-8 py-3 rounded-md text-white bg-orange-500"
+        *ngIf="isAddedToCart === true"
+      >
+        <a routerLink="/cart"> Visit Cart </a>
       </button>
     </div>
   </div>

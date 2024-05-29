@@ -9,12 +9,14 @@ import { ErrorService } from 'src/app/services/error/error.service';
   styleUrls: ['./checkout-section.component.css'],
 })
 export class CheckoutSectionComponent {
-  @Input() cartItems: CartItems[] = [];
-
   constructor(
     private cartService: CartService,
     private errorService: ErrorService
   ) {}
+
+  get cartItems(): CartItems[] {
+    return this.cartService.getCartItems();
+  }
 
   get checkoutPrice(): {
     totalPrice: number;
@@ -48,7 +50,9 @@ export class CheckoutSectionComponent {
     }
 
     this.cartService.checkout(userId).subscribe(
-      (response) => console.log(response),
+      (response) => {
+        console.log(response);
+      },
       (error) => {
         this.errorService.setError('Error in checking out');
       }

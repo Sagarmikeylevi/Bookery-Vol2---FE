@@ -1,4 +1,7 @@
-<section class="w-[80%] ml-[10%] md:w-[50%] md:ml-[25%] p-8">
+<section
+  class="w-[80%] ml-[10%] md:w-[50%] md:ml-[25%] p-8"
+  *ngIf="isDeleting === false; else deleting"
+>
   <div
     class="w-full border border-gray-400 rounded-md flex flex-col items-center mb-4 h-32 relative"
     *ngFor="let item of cartItems"
@@ -30,3 +33,7 @@
     </button>
   </div>
 </section>
+
+<ng-template #deleting>
+  <app-loading-section [message]="deleteMessage"></app-loading-section>
+</ng-template>

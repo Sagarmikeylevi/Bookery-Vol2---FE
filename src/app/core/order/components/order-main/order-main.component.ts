@@ -3,6 +3,7 @@ import { BOOK_DEATILS } from 'src/app/app.constants';
 
 import { Book } from 'src/app/models/book';
 import { CartService } from 'src/app/services/carts/cart.service';
+import { ErrorService } from 'src/app/services/error/error.service';
 
 @Component({
   selector: 'app-order-main',
@@ -13,14 +14,20 @@ export class OrderMainComponent {
   @Input() book: Book[] = [];
   imageURLPrefix = BOOK_DEATILS.imageURLPrefix;
   bookCount = 1;
+  isAddedToCart: boolean = false;
+  isLoading: boolean = false;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private errorService: ErrorService
+  ) {}
 
   get userId(): string | null {
     return localStorage.getItem('user');
   }
 
   handleAddToCart() {
+    this.isLoading = true;
     const userId = this.userId;
     const book = this.book[0];
 
@@ -40,9 +47,13 @@ export class OrderMainComponent {
     this.cartService.addToCart({ bookId, qty }, userId).subscribe(
       (response) => {
         console.log('Book added to cart:', response);
+        this.isLoading = false;
+        this.isAddedToCart = true;
       },
       (error) => {
         console.error('Failed to add book to cart:', error);
+        this.isLoading = false;
+        this.errorService.setError('Error to add book to cart');
       }
     );
   }

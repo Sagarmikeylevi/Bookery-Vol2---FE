@@ -10,6 +10,7 @@ import { BookService } from 'src/app/services/books/book.service';
 })
 export class FeaturedBooksCardComponent {
   imageURLPrefix = BOOK_DEATILS.imageURLPrefix;
+  loadingMessage: string = 'Fetching Fetured books...';
   constructor(private bookService: BookService) {}
 
   get featuredBooks(): Book[] {

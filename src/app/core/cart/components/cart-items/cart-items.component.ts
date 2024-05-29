@@ -10,7 +10,8 @@ import { ErrorService } from 'src/app/services/error/error.service';
   styleUrls: ['./cart-items.component.css'],
 })
 export class CartItemsComponent {
-  @Input() cartItems: CartItems[] = [];
+  isDeleting: boolean = false;
+  deleteMessage: string = 'Deleting...';
   imageURLPrefix: string = BOOK_DEATILS.imageURLPrefix;
 
   constructor(
@@ -18,11 +19,16 @@ export class CartItemsComponent {
     private errorService: ErrorService
   ) {}
 
+  get cartItems(): CartItems[] {
+    return this.cartService.getCartItems();
+  }
+
   get userId(): string | null {
     return localStorage.getItem('user');
   }
 
   onDelete(itemId: string | undefined) {
+    this.isDeleting = true;
     const userId = this.userId;
 
     if (!userId) {
@@ -32,6 +38,8 @@ export class CartItemsComponent {
     this.cartService.deleteCartItemById(itemId!, userId).subscribe(
       (response) => {
         console.log(response);
+        
+        this.isDeleting = false;
       },
       (error) => {
         this.errorService.setError('Error deleting cart books');

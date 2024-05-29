@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartItems } from 'src/app/models/cartItems';
 import { CartService } from 'src/app/services/carts/cart.service';
 import { ErrorService } from 'src/app/services/error/error.service';
@@ -11,9 +12,21 @@ import { ErrorService } from 'src/app/services/error/error.service';
 export class CartComponent implements OnInit {
   constructor(
     private cartService: CartService,
-    private errorService: ErrorService
+    private errorService: ErrorService,
+    private router: Router
   ) {}
-  cartItems: CartItems[] = [];
+
+  get checkoutState(): boolean {
+    return this.cartService.getCheckoutState();
+  }
+
+  get userName(): string {
+    return localStorage.getItem('username')!;
+  }
+
+  get cartItems(): CartItems[] {
+    return this.cartService.getCartItems();
+  }
 
   get userId(): string | null {
     return localStorage.getItem('user');
@@ -28,7 +41,7 @@ export class CartComponent implements OnInit {
     }
     this.cartService.getCartBooks(userId).subscribe(
       (response) => {
-        this.cartItems = response.data.items.map((item: any) => ({
+        const cartItems: CartItems[] = response.data.items.map((item: any) => ({
           _id: item._id,
           title: item.title,
           author: item.author,
@@ -37,11 +50,17 @@ export class CartComponent implements OnInit {
           quantity: item.Qty,
           totalPrice: item.totalPrice,
         }));
+        this.cartService.setCartItems(cartItems);
       },
 
       (error) => {
         this.errorService.setError('Error finding cart books');
       }
     );
+  }
+
+  onBackToHome() {
+    this.cartService.setCheckoutToFalse();
+    this.router.navigateByUrl('/');
   }
 }

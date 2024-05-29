@@ -21,6 +21,10 @@ export class NavbarComponent {
     });
   }
 
+  get currentUrlPath(): string {
+    return this.router.url;
+  }
+
   get authState(): boolean {
     return this.userService.getAuthState();
   }
