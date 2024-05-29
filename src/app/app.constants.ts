@@ -1,4 +1,4 @@
-const apiURL = 'http://localhost:8000/api';
+const apiURL = 'https://bookstore-api12.onrender.com/api';
 
 export const API_ENDPOINTS = {
   REGISTER: `${apiURL}/user/register`,
@@ -25,7 +25,7 @@ export const REGISTER_DETAILS = {
 };
 
 export const BOOK_DEATILS = {
-  imageURLPrefix: 'http://localhost:8000/uploads/images',
+  imageURLPrefix: 'https://bookstore-api12.onrender.com/uploads/images',
 };
 
 export const GENRES = [
