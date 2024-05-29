@@ -34,7 +34,7 @@ export class OrderMainComponent {
       return;
     }
 
-    const { _id: bookId, totalQty } = book;
+    const { _id: bookId } = book;
     const qty = this.bookCount;
 
     this.cartService.addToCart({ bookId, qty }, userId).subscribe(

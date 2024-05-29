@@ -6,6 +6,8 @@ export const API_ENDPOINTS = {
   GET_ALLBOOKS: `${apiURL}/book/getbooks`,
   ADD_TO_CART: `${apiURL}/cart/addBooks`,
   GET_CART_ITEMS: `${apiURL}/cart/getBooks`,
+  DELETE_CART_ITEMS_BY_ID: `${apiURL}/cart/delete`,
+  CHECKOUT: `${apiURL}/cart/checkout`,
 };
 
 export const LOGIN_DETAILS = {
