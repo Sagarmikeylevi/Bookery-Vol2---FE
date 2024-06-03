@@ -9,6 +9,7 @@ import { User } from 'src/app/models/user';
 })
 export class UserService {
   private authState: boolean = this.isTokenAvailble();
+  private logoutTimer: any;
 
   constructor(private http: HttpClient) {}
 
@@ -21,6 +22,7 @@ export class UserService {
     localStorage.setItem('user', userId);
     localStorage.setItem('username', username);
     this.authState = true;
+    this.startLogoutTimer();
   }
 
   isTokenAvailble(): boolean {
@@ -44,5 +46,20 @@ export class UserService {
     localStorage.removeItem('user');
     localStorage.removeItem('username');
     this.authState = false;
+    if (this.logoutTimer) {
+      clearTimeout(this.logoutTimer);
+    }
+  }
+
+  private startLogoutTimer() {
+    if (this.logoutTimer) {
+      clearTimeout(this.logoutTimer);
+    }
+
+    const expiryTime = 3600000;
+
+    this.logoutTimer = setTimeout(() => {
+      this.logout();
+    }, expiryTime);
   }
 }
